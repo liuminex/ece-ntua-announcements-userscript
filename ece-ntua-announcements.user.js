@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          ece.ntua.gr announcements fix
-// @version       0.4
-// @description   Highlight new posts using 3 colors and sort them based on date instead of this weird order they are in
+// @version       0.5
+// @description   Highlight posts added today and yesterday and sort them based on date instead of this weird order that they are in
 // @author        liuminex
 // @match         https://www.ece.ntua.gr/el/announcements
 // @run-at        document-end
@@ -54,7 +54,7 @@ function fixthem() {
                 alert("Error in userscript");
                 return;
             }
-            
+
             const contentElement = mainElement.children[0];
             if (!contentElement) {
                 console.error("Error 2: No content element found");
@@ -146,8 +146,8 @@ function fixthem() {
                 "Μαρ": "03",
                 "Απρ": "04",
                 "Μαΐ": "05",
-                "Ιου": "06",
-                "Ιου": "07",
+                "Ιουν": "06",
+                "Ιουλ": "07",
                 "Αυγ": "08",
                 "Σεπ": "09",
                 "Οκτ": "10",
@@ -202,12 +202,12 @@ function fixthem() {
                     font-family: Times New Roman, serif;
                     "
                 >
-            
+
             <span style="font-size: 0.8em; color: gray; margin-bottom: 5px;">${ann.date}</span>
             <span style="font-size: 1em;">${ann.text}</span>
-            
-            
-            
+
+
+
             </a>`;
             container.innerHTML += new_html_a;
         }
